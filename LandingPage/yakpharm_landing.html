@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakpharm 랜딩페이지</title>
+
+    <!-- ✅ Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;700&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ✅ 첫 번째 페이지: Hero Section -->
+    <header class="hero">
+        <div class="logo">JAMMIT</div>
+        <img src="assets/YakPharm logo.png" alt="YakPharm Logo" class="yakpharm-logo">
+        <p class="subtitle">당신을 위한 스마트한 약국 네트워크</p>
+    </header>
+
+    <!-- ✅ 핵심 기능 문구 (한 줄 유지) -->
+    <section class="key-features">
+        <p class="feature-text">
+            <span>필요한 약, 가장 가까운 약국에서 찾다.</span>
+            <span>성분이 궁금할 땐 AI 논문 요약을.</span>
+            <span>약사의 리뷰로 더욱 신뢰할 수 있는 선택을.</span>
+        </p>
+    </section>
+
+    <!-- ✅ 두 번째 페이지: 약국 위치 검색 -->
+    <section class="mvp-page map-section">
+        <div class="map-container">
+            <div class="map-left">
+                <h2>찾고 싶은 약을 <br>검색 한 번으로 빠르게.</h2>
+                <p>Yakpharm에서는 원하는 약품을 검색하면, <br>그 약을 보유한 약국을 지도에서 바로 확인할 수 있습니다.</p>
+            </div>
+            <div class="map-right">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ 세 번째 페이지: AI 논문 요약 -->
+    <section class="mvp-page ai-summary-section">
+        <div class="content-container">
+            <div class="iphone-container">
+                <div class="iphone-screen">
+                    <iframe src="https://your-ai-summary-service.com" frameborder="0"></iframe>
+                </div>
+            </div>
+            <div class="text-container">
+                <h2>성분 논문 AI 요약</h2>
+                <p>Yakpharm의 AI는 특정 성분에 대한 논문을 분석하여 중요한 내용을 요약해 줍니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ 네 번째 페이지: 약사 리뷰 -->
+    <section class="mvp-page pharmacist-review-section">
+        <div class="content-container">
+            <div class="text-container">
+                <h2>약사 리뷰 제공</h2>
+                <p>검색한 약품에 대해 약사들이 남긴 실제 리뷰를 확인하고 신뢰할 수 있는 정보를 얻으세요.</p>
+            </div>
+            <div class="review-container">
+                <ul>
+                    <li>⭐⭐⭐⭐⭐ 효과가 정말 좋았어요! - 김약사</li>
+                    <li>⭐⭐⭐⭐ 복용 시 주의사항을 꼭 확인하세요. - 이약사</li>
+                    <li>⭐⭐⭐ 가격 대비 효과는 무난합니다. - 박약사</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ 다섯 번째 페이지: 추가 기능 -->
+    <section class="extra-features">
+        <h2>추가 기능</h2>
+        <div class="feature-list">
+            <div class="feature">
+                <h3>복약 기록 관리</h3>
+                <p>복용 중인 약을 기록하고, 정해진 시간에 복용 알림을 받을 수 있습니다.</p>
+            </div>
+            <div class="feature">
+                <h3>약 관련 커뮤니티</h3>
+                <p>사용자들이 약에 대한 경험을 공유하고, 궁금한 점을 질문할 수 있는 커뮤니티 공간입니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Yakpharm. All Rights Reserved.</p>
+    </footer>
+
+    <!-- ✅ JavaScript -->
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+</body>
+</html>
