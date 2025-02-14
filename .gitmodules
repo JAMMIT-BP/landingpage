@@ -1,0 +1,3 @@
+[submodule "yakpharm"]
+	path = yakpharm
+	url = https://github.com/JAMMIT-BP/yakpharm.git
