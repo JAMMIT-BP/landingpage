@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yakpharm 랜딩페이지</title>
 
-    <!-- ✅ Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;700&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="landing_style.css">
 </head>
@@ -24,27 +23,22 @@
     <!-- ✅ 핵심 기능 문구 (한 줄 유지) -->
     <section class="key-features">
         <p class="feature-text">
-            <span>필요한 약, 가장 가까운 약국에서 찾다.</span>
-            <span>성분이 궁금할 땐 AI 논문 요약을.</span>
-            <span>약사의 리뷰로 더욱 신뢰할 수 있는 선택을.</span>
+            <span>필요한 약, 가장 가까운 약국에서 찾다.<br>성분이 궁금할 땐 AI 논문 요약을.<br>약사의 리뷰로 더욱 신뢰할 수 있는 선택을.</span>
         </p>
     </section>
 
-    <!-- ✅ 약국 위치 검색 (iframe으로 연결) -->
+    <!-- ✅ 두 번째 페이지: 약국 위치 검색 -->
     <section class="mvp-page map-section">
         <div class="map-container">
             <div class="map-left">
                 <h2>찾고 싶은 약을 <br>검색 한 번으로 빠르게.</h2>
-                <p>Yakpharm에서는 원하는 약품을 검색하면, <br>그 약을 보유한 약국을 지도에서 바로 확인할 수 있습니다.</p>
+                <p>구매하고 싶은 약 이름을 검색해보세요. <br>해당 약을 판매하는 약국을 지도상에서 확인할 수 있어요.</p>
             </div>
             <div class="map-right">
-                <!-- ✅ iframe을 사용해 약국 검색 페이지 삽입 -->
-                <iframe src="yakpharm/pharmsearch_index.html" frameborder="0"
-                    width="100%" height="600px"></iframe>
+                <div id="map"></div>
             </div>
         </div>
     </section>
-
 
     <!-- ✅ 세 번째 페이지: AI 논문 요약 -->
     <section class="mvp-page ai-summary-section">
@@ -98,7 +92,7 @@
     </footer>
 
     <!-- ✅ JavaScript -->
-    <script src="landing_script.js"></script>
+    <script src="script.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
 </body>
 </html>
