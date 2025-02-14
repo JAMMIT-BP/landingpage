@@ -123,6 +123,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     padding-right: 5%;
+    margin-top: -30px;
 }
 
 .map-left h2 {
