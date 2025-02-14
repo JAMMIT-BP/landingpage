@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;700&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="landing_style.css">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
         </p>
     </section>
 
-    <!-- ✅ 두 번째 페이지: 약국 위치 검색 -->
+    <!-- ✅ 약국 위치 검색 (iframe으로 연결) -->
     <section class="mvp-page map-section">
         <div class="map-container">
             <div class="map-left">
@@ -38,10 +38,13 @@
                 <p>Yakpharm에서는 원하는 약품을 검색하면, <br>그 약을 보유한 약국을 지도에서 바로 확인할 수 있습니다.</p>
             </div>
             <div class="map-right">
-                <div id="map"></div>
+                <!-- ✅ iframe을 사용해 약국 검색 페이지 삽입 -->
+                <iframe src="yakpharm/pharmsearch_index.html" frameborder="0"
+                    width="100%" height="600px"></iframe>
             </div>
         </div>
     </section>
+
 
     <!-- ✅ 세 번째 페이지: AI 논문 요약 -->
     <section class="mvp-page ai-summary-section">
@@ -95,7 +98,7 @@
     </footer>
 
     <!-- ✅ JavaScript -->
-    <script src="script.js"></script>
+    <script src="landing_script.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
 </body>
 </html>
