@@ -1,15 +1,17 @@
 /* ✅ 기본 스타일 */
-body {
-    font-family: "Afacad", sans-serif;
+html, body {
+    font-family: "Noto Sans KR", sans-serif;
     margin: 0;
     padding: 0;
     color: black;
     overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* ✅ 페이지 공통 스타일 */
 .page {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -20,8 +22,9 @@ body {
 /* ✅ 첫 번째 페이지: Hero Section */
 .hero {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background: url('assets/background_gradient.png') no-repeat center center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +32,6 @@ body {
     padding-left: 12%;
     text-align: left;
     color: white;
-    overflow: hidden;
 }
 
 /* JAMMIT 로고 */
@@ -62,118 +64,326 @@ body {
     animation: slideUp 1s ease-out forwards 0.8s;
 }
 
-/* ✅ 핵심 기능 문구 (스크롤 반응) */
+/* ✅ 핵심 기능 문구 */
 .key-features {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 70vh;
-    color: #d4d4d4;
-    background-color: #ffffff;
+    height: 100vh;
+    width: 100%;
+    background-color: #fafafa;
     font-size: 50px;
     font-weight: bold;
-    text-align: left;
-    position: relative;
-    padding-left: 25%;
-    padding-right: 25%;
+    text-align: center;
 }
 
 /* ✅ 핵심 문구 스타일 */
 .feature-text {
-    width: 40vw;
+    width: 60%;
     opacity: 0.3;
-    transition: color 0.6s ease-in-out, opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
-    transform: translateY(20px);
-    word-wrap: break-word;
-    line-height: 1.5;
+    transition: color 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    text-align: center;
 }
 
 /* ✅ 현재 화면에서 활성화된 문구 */
 .feature-text.active {
     color: black;
     opacity: 1;
-    transform: translateY(0);
 }
 
-/* ✅ 두 번째 페이지 (약국 위치 검색) */
+.map-container{
+    padding-top: 100px;
+}
+
+/* ✅ 두 번째 페이지: 약국 위치 검색 */
 .map-section {
-    background-color: #fafafa;
-    height: 100vh;
+    background-color: #ffffff;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 100px; /* 🔹 아래 여백 추가하여 겹침 방지 */
 }
 
-/* ✅ 두 번째 페이지 컨테이너 */
 .map-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "map-left mockup"
+        "map-right search";
+    gap: 20px;
     width: 80%;
     max-width: 1200px;
-    height: 80vh;
+    height: auto;
+    position: relative;
 }
 
-/* ✅ 왼쪽 텍스트 */
+/* 🔹 왼쪽 위: 텍스트 박스 */
 .map-left {
-    flex: 1;
-    background-color: #fafafa;
-    text-align: left;
+    grid-area: map-left;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-left: 12%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 30px 30px 30px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
 }
 
-/* ✅ "약국 위치 검색" 제목 크기 */
-.map-left h2 {
-    font-size: 56px;
-    font-weight: bold;
-    margin-bottom: 20px;
+.map-left h2{
+    font-size: 48px;
 }
 
-/* ✅ 설명 글씨 크기 */
-.map-left p {
-    font-size: 22px;
-    line-height: 1.8;
-    color: #444;
+.map-left p{
+    font-size: 23px;
+    margin-top: -2px;
 }
 
-/* ✅ 오른쪽 배경 박스 스타일 */
-.map-right {
-    flex: 1;
-    background-color: white;
-    padding: 40px;
+/* 🔹 오른쪽 위: 목업 */
+.mockup-container {
+    grid-area: mockup;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: #ffffff;
+    padding: 150px 0px 30px 30px;
 }
 
-/* ✅ 지도 */
-#map {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
+.mockup-image {
+    width: auto;
+    height: 700px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
 }
 
-/* ✅ 페이지 스와이프 애니메이션 */
-.page.swipe-up {
-    transform: translateY(-100%);
-    opacity: 0;
+.badge-overlay {
+    position: absolute;
+    top: 500px;
+    left: 47%;
+    transform: translateX(-50%);
+    width: 520px;
+    height: auto;
+    pointer-events: none;
+    z-index: 3;
 }
 
-/* ✅ 세 번째 페이지: 성분 논문 AI 요약 */
+/* 🔹 왼쪽 아래: 기능 모듈 */
+.map-right {
+    grid-area: map-right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFEA00;
+    min-height: 100%; /* 🔹 mockup-container와 높이 맞춤 */
+    margin-top: -420px;
+}
+
+/* 🔹 검색 기능 안내 박스 */
+.search-guide {
+    grid-area: search;
+    display: grid;
+    grid-template-columns: auto 1fr; /* 왼쪽: 이미지, 오른쪽: 텍스트 */
+    align-items: center;
+    gap: 15px; /* 이미지와 텍스트 간격 */
+    background: #ffffff;
+    padding: 60px;
+    font-size: 23px;
+    font-family: "Noto Sans KR", sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+.search-guide .arrow-icon {
+    width: 80px;
+    height: auto;
+    margin-top: -90px;
+}
+
+.search-guide .text-container {
+    text-align: left;
+}
+
+.search-guide .text-container .bold-text {
+    font-weight: 500 !important; /* Medium */
+}
+
+.search-guide .text-container .light-text {
+    font-weight: 300 !important; /* Light */
+}
+
+/* 🔹 반응형 조정 */
+@media screen and (max-width: 900px) {
+    .map-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .map-left,
+    .mockup-container,
+    .map-right,
+    .search-guide {
+        grid-column: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+    .badge-overlay {
+        top: 50px; /* 🔹 모바일에서 위치 조정 */
+        width: 250px; /* 🔹 모바일에서 크기 조정 */
+    }
+}
+
+/* ✅ 세 번째 페이지: AI 논문 요약 */
 .ai-summary-section {
     background-color: #ffffff;
-    height: 100vh;
-    padding: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 10%;
+}
+
+/* 🔹 텍스트 부분 (2열) */
+.ai-summary-text {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* 왼쪽(제목) 1, 오른쪽(설명) 1.2 */
+    align-items: start; /* 🔥 제목이 위쪽에 오도록 조정 */
+    gap: 50px;
+    margin-bottom: 80px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* 🔹 왼쪽: 제목 */
+.ai-summary-title {
+    font-size: 42px;
+    font-weight: 700; /* 더 볼드하게 */
+    text-align: left;
+    line-height: 1.3;
+}
+
+/* 🔹 오른쪽: 설명 */
+.ai-summary-description {
+    font-size: 22px;
+    font-weight: 400;
+    text-align: left;
+    color: #444;
+    line-height: 1.8; /* 🔥 가독성을 높이기 위해 줄 간격 조정 */
+}
+
+/* 🔹 시연 부분 (둥근 직사각형) */
+.ai-summary-demo {
+    width: 90%;
+    max-width: 1400px; /* 🔥 더 크게 */
+    height: 500px; /* 🔥 높이 증가 */
+    background-color: #ffffff; /* 🔥 더 명확한 배경색 */
+    border-radius: 30px; /* 더 둥글게 */
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.1); /* 그림자 강하게 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 500;
+    color: #777;
+    margin-top: 20px; /* 🔥 아래쪽으로 이동 */
 }
 
 /* ✅ 네 번째 페이지: 약사 리뷰 */
 .pharmacist-review-section {
     background-color: #ffffff;
-    height: 100vh;
-    padding: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 10%;
+}
+
+/* 🔹 제목과 설명을 감싸는 컨테이너 */
+.pharmacist-review-text {
+    text-align: center;
+    max-width: 900px;
+    margin-bottom: 60px;
+}
+
+/* 🔹 제목 */
+.pharmacist-review-title {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+/* 🔹 설명 */
+.pharmacist-review-description {
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* 🔹 리뷰 카드 컨테이너 */
+.review-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개씩 배치 */
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* 🔹 리뷰 카드 디자인 */
+.review-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* 🔹 약사 정보 (이름 + 직책) */
+.pharmacist-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 🔹 프로필 사진 (임시 스타일, 필요하면 이미지 추가 가능) */
+.pharmacist-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #eee; /* 프로필 이미지 없는 경우 */
+    border-radius: 50%;
+}
+
+/* 🔹 이름 및 직책 */
+.pharmacist-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+.pharmacist-name {
+    font-weight: 600;
+}
+
+.pharmacist-role {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 🔹 리뷰 텍스트 */
+.review-text {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
 }
 
 /* ✅ 다섯 번째 페이지: 추가 기능 */
@@ -215,29 +425,6 @@ body {
     align-items: center;
 }
 
-/* ✅ 아이폰 UI */
-.iphone-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.iphone-screen {
-    width: 300px;
-    height: 600px;
-    border: 16px solid black;
-    border-radius: 40px;
-    overflow: hidden;
-    background-color: white;
-}
-
-.iphone-screen iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
 /* ✅ 리뷰 리스트 */
 .review-container ul {
     list-style: none;
@@ -250,19 +437,94 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
-/* ✅ 추가 기능 목록 */
-.feature-list {
+/* ✅ 다섯 번째 페이지: 추가 기능 */
+.extra-features-section {
+    background-color: #ffffff;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 40px;
+    padding: 100px 10%;
 }
 
-.feature {
-    max-width: 300px;
+/* 🔹 제목과 설명 */
+.extra-features-text {
+    text-align: center;
+    max-width: 900px;
+    margin-bottom: 60px;
+}
+
+.extra-features-title {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.extra-features-description {
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* 🔹 기능 카드 컨테이너 */
+.feature-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개씩 배치 */
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* 🔹 기능 카드 디자인 */
+.feature-card {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+}
+
+/* 🔹 기능 아이콘 (임시 스타일, 필요하면 이미지 추가 가능) */
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #eee; /* 아이콘 없는 경우 */
+    border-radius: 50%;
+}
+
+/* 🔹 기능 제목 */
+.feature-title {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* 🔹 기능 설명 */
+.feature-description {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ✅ 푸터 스타일 */
+.footer {
+    background-color: #2a2a2f; /* 짙은 회색 배경 */
+    color: #ddd; /* 밝은 회색 텍스트 */
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: "Afacad", sans-serif;
 }
 
 /* ✅ 애니메이션 효과 */
